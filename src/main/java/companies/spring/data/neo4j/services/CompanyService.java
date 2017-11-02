@@ -1,26 +1,26 @@
-package movies.spring.data.neo4j.services;
+package companies.spring.data.neo4j.services;
 
 import java.util.*;
 
-import movies.spring.data.neo4j.domain.Movie;
-import movies.spring.data.neo4j.domain.Role;
-import movies.spring.data.neo4j.repositories.MovieRepository;
+import companies.spring.data.neo4j.domain.Company;
+import companies.spring.data.neo4j.domain.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import companies.spring.data.neo4j.repositories.CompanyRepository;
 
 @Service
-public class MovieService {
+public class CompanyService {
 
-	@Autowired MovieRepository movieRepository;
+	@Autowired CompanyRepository movieRepository;
 
-	private Map<String, Object> toD3Format(Collection<Movie> movies) {
+	private Map<String, Object> toD3Format(Collection<Company> movies) {
 		List<Map<String, Object>> nodes = new ArrayList<>();
 		List<Map<String, Object>> rels = new ArrayList<>();
 		int i = 0;
-		Iterator<Movie> result = movies.iterator();
+		Iterator<Company> result = movies.iterator();
 		while (result.hasNext()) {
-			Movie movie = result.next();
+			Company movie = result.next();
 			nodes.add(map("title", movie.getTitle(), "label", "movie"));
 			int target = i;
 			i++;
@@ -46,7 +46,7 @@ public class MovieService {
 
 	@Transactional(readOnly = true)
 	public Map<String, Object>  graph(int limit) {
-		Collection<Movie> result = movieRepository.graph(limit);
+		Collection<Company> result = movieRepository.graph(limit);
 		return toD3Format(result);
 	}
 }

@@ -1,4 +1,4 @@
-package movies.spring.data.neo4j.domain;
+package companies.spring.data.neo4j.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,7 +15,7 @@ import org.neo4j.ogm.annotation.Relationship;
  */
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 @NodeEntity
-public class Movie {
+public class Company {
 
 	@GraphId
 	private Long id;
@@ -26,13 +26,13 @@ public class Movie {
 
 	private String tagline;
 
-	@Relationship(type = "ACTED_IN", direction = Relationship.INCOMING)
+	@Relationship(type = "WORKED_IN", direction = Relationship.INCOMING)
 	private List<Role> roles = new ArrayList<>();
 
-	public Movie() {
+	public Company() {
 	}
 
-	public Movie(String title, int released) {
+	public Company(String title, int released) {
 
 		this.title = title;
 		this.released = released;

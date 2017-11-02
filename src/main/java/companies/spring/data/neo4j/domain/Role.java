@@ -1,4 +1,4 @@
-package movies.spring.data.neo4j.domain;
+package companies.spring.data.neo4j.domain;
 
 
 import java.util.ArrayList;
@@ -11,11 +11,9 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.RelationshipEntity;
 import org.neo4j.ogm.annotation.StartNode;
 
-/**
- * @author Mark Angrish
- */
+ 
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-@RelationshipEntity(type = "ACTED_IN")
+@RelationshipEntity(type = "WORKED_IN")
 public class Role {
 
 	@GraphId
@@ -27,13 +25,13 @@ public class Role {
 	private Person person;
 
 	@EndNode
-	private Movie movie;
+	private Company company;
 
 	public Role() {
 	}
 
-	public Role(Movie movie, Person actor) {
-		this.movie = movie;
+	public Role(Company company, Person actor) {
+		this.company = company;
 		this.person = actor;
 	}
 
@@ -49,8 +47,8 @@ public class Role {
 		return person;
 	}
 
-	public Movie getMovie() {
-		return movie;
+	public Company getCompany() {
+		return company;
 	}
 
 	public void addRoleName(String name) {

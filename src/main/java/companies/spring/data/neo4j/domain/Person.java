@@ -1,4 +1,4 @@
-package movies.spring.data.neo4j.domain;
+package companies.spring.data.neo4j.domain;
 
 
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ public class Person {
 
 	private int born;
 
-	@Relationship(type = "ACTED_IN")
-	private List<Movie> movies = new ArrayList<>();
+	@Relationship(type = "WORKED_IN")
+	private List<Company> movies = new ArrayList<>();
 
 	public Person() {
 	}
@@ -48,7 +48,7 @@ public class Person {
 		return born;
 	}
 
-	public List<Movie> getMovies() {
+	public List<Company> getMovies() {
 		return movies;
 	}
 }

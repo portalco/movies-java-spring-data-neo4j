@@ -1,23 +1,21 @@
-package movies.spring.data.neo4j.controller;
+package companies.spring.data.neo4j.controller;
 
 import java.util.Map;
 
-import movies.spring.data.neo4j.services.MovieService;
+import companies.spring.data.neo4j.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author Mark Angrish
- */
+ 
 @RestController("/")
-public class MovieController {
+public class CompanyController {
 
-	final MovieService movieService;
+	final CompanyService movieService;
 
 	@Autowired
-	public MovieController(MovieService movieService) {
+	public CompanyController(CompanyService movieService) {
 		this.movieService = movieService;
 	}
 
