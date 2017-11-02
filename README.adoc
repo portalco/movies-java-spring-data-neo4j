@@ -1,4 +1,4 @@
-Movies Example Application
+Identity Application
 ==========================
 
 How to use Spring Boot, Spring Data Neo4j and Spring Data Rest together.
